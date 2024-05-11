@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap-flat.css">
+    <link rel="stylesheet" href="/plugins/icons-1.10.5/font/bootstrap-icons.min.css">
+    <!-- theme -->
+    <link rel="stylesheet" href="/css/admin.css">
+    <!-- plugin -->
+    <script src="/plugins/jquery/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="/plugins/datatables/datatables.min.css">
+    <script src="/plugins/datatables/datatables.min.js"></script>
+    <script src="/plugins/sweetalert2/sweetalert2.js"></script>
+    <script src="/plugins/hightchart/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="wrapper">
+        <div class="sidenav d-flex flex-column flex-shrink-0 px-1 py-2 p-md-3 text-bg-dark " id="sidenav">
+            <div class="h-100">
+                <a href="index.html" id="brand"
+                    class="sidenav-logo d-flex align-items-center mb-md-0 text-white text-decoration-none justify-content-center">
+                    <img src="brand.png" width="20px" class="mt-0">
+                    <span class="fs-5 p-0 m-0 ms-2"><span class="text-primary">One</span> Admin</span>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item mb-1">
+                        <a href="dashboard.html" class="nav-link text-white" data-bs-toggle="tooltip"
+                            data-bs-placement="right" data-bs-title="Dashboard">
+                            <i class="bi bi-columns-gap"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-1">
+                        <a href="widget.html" class="nav-link text-white active">
+                            <i class="bi bi-card-heading"></i>
+                            <span>Widget</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-1">
+                        <a href="chart.html" class="nav-link text-white">
+                            <i class="bi bi-bar-chart"></i>
+                            <span>Chart</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="main" class="main-content">
+            <div class="container-fluid p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="me-auto">
+                        <div class="d-flex align-items-center">
+                            <div class="me-3"><span id="side-button" onclick="sideThin()"
+                                    class="bi bi-list fs-4 m-0 p-0"></span></div>
+                            <!-- <form action="">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Cari" aria-label="Cari" aria-describedby="btn-cari">
+									<button class="btn btn-outline-primary" type="button" id="btn-cari"><i class="bi bi-search"></i></button>
+								</div>
+							</form> -->
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Widget</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#"
+                            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person fs-5"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <h6 class="dropdown-header">Hallo Admin 👋</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-lock me-2"></i> Ganti
+                                    Password</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="btn btn-danger w-100" href="#"><i class="bi bi-box-arrow-right me-2"></i>
+                                    Keluar</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- content -->
+                <section>
+                    <div class="container">
+                        <h1>Widget</h1>
+                        <p>Info box</p>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-12 pb-3">
+                                <div class="card">
+                                    <div class="card-body p-1">
+                                        <div class="d-flex">
+                                            <div class="p-3 bg-primary text-white">
+                                                <i class="fs-2 bi bi-chat"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p>Messages</p>
+                                                <b>2,324</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12 pb-3">
+                                <div class="card">
+                                    <div class="card-body p-1">
+                                        <div class="d-flex">
+                                            <div class="p-3 bg-success">
+                                                <i class="fs-2 bi bi-bookmarks"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p>Bookmark</p>
+                                                <b>324</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12 pb-3">
+                                <div class="card">
+                                    <div class="card-body p-1">
+                                        <div class="d-flex">
+                                            <div class="p-3 bg-warning">
+                                                <i class="fs-2 bi bi-files"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p>Upload</p>
+                                                <b>3,924</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12 pb-3">
+                                <div class="card">
+                                    <div class="card-body p-1">
+                                        <div class="d-flex">
+                                            <div class="p-3 bg-info">
+                                                <i class="fs-2 bi bi-star"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p>Likes</p>
+                                                <b>4,324</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Info box with shadow</p>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-12 pb-3">
+                                <div class="card">
+                                    <div class="card-body p-1">
+                                        <div class="d-flex">
+                                            <div class="p-3 bg-primary text-white">
+                                                <i class="fs-2 bi bi-chat"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p>Messages</p>
+                                                <b>2,324</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12 pb-3">
+                                <div class="card shadow-sm">
+                                    <div class="card-body p-1">
+                                        <div class="d-flex">
+                                            <div class="p-3 bg-success">
+                                                <i class="fs-2 bi bi-bookmarks"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p>Bookmark</p>
+                                                <b>324</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12 pb-3">
+                                <div class="card shadow">
+                                    <div class="card-body p-1">
+                                        <div class="d-flex">
+                                            <div class="p-3 bg-warning">
+                                                <i class="fs-2 bi bi-files"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p>Upload</p>
+                                                <b>3,924</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-12 pb-3">
+                                <div class="card shadow-lg">
+                                    <div class="card-body p-1">
+                                        <div class="d-flex">
+                                            <div class="p-3 bg-info">
+                                                <i class="fs-2 bi bi-star"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p>Likes</p>
+                                                <b>4,324</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Simple info box</p>
+                        <div class="row mb-5">
+                            <div class="col-md-4 col-lg-3">
+                                <div class="alert alert-warning">
+                                    <b>Message</b><br>
+                                    <span class="fs-2"> 87 </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-3">
+                                <div class="alert alert-info">
+                                    <b>Bookmark</b><br>
+                                    <span class="fs-2"> 6</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-3">
+                                <div class="alert alert-success">
+                                    <b>Upload</b><br>
+                                    <span class="fs-2"> 876</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-3">
+                                <div class="alert alert-danger">
+                                    <b>Likes</b><br>
+                                    <span class="fs-2">765</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end content -->
+            </div>
+            <footer class="bg-body-tertiary shadow mt-5">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-md-between justify-content-center py-4">
+                        <small class="text-secondary text-small">One Admin 2024 &copy; Hendika Septio | Made with <i
+                                class="bi bi-heart-fill text-danger"></i> by <a href="https://github.com/hendikaseptio"
+                                class="text-secondary">Hendika</a> </small>
+                        <small class="text-secondary text-small">v3.14.0</small>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script>
+        function sideThin() {
+            $(".wrapper").toggleClass("sidenav-thinning");
+        }    
+    </script>
+</body>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+</html>
